@@ -25,6 +25,6 @@ Returned VARCHAR(3),
 Return_notes VARCHAR(500),
 Approver (VARCHAR(100), 
 State_Province (VARCHAR(100),
-Sales_Region varchar(100),
+Sales_Region varchar(100
 
 //  ETC - this is the whole table definition 
