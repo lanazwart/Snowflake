@@ -13,9 +13,9 @@ Desc stage aws_stage;
 List @aws_tage;
 
 //Load data into stage from S3 //Preview the data in the stage
-Select 5.$1, t.$2 from @aws_stage t;
+Select t.$1, t.$2 from @aws_stage t;
 
-Create or replace file format csv_comma type= ‘css’ field_delimeter= ‘|’ skip_header=1;
+Create or replace file format csv_comma type= ‘csv’ field_delimeter= ‘|’ skip_header=1;
 
 //Create a table to load data into
 CREATE TABLE order_data (
