@@ -1,0 +1,8 @@
+//Load into table
+copy into order_data
+from @staging.external_staging.aws_stage
+file_format = (type=‘css’ field_delimeter = ‘|’ skip_header=1 )
+Files = (‘orders.csv’);
+
+//Preview first 100 rows of data
+select * from order_data limit 100;
