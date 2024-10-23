@@ -1,3 +1,5 @@
+//Note that we need a virtual warehouse running before the copy into can be made from a Staging area
+
 //Load into table - In Snowflake, position cursor in context of the database / schema you're loading into
 copy into order_data
 from @staging.external_staging.aws_stage
