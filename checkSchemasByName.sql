@@ -1,3 +1,0 @@
-select * 
-from GARDEN_PLANTS.INFORMATION_SCHEMA.SCHEMATA
-where schema_name in ('FLOWERS','FRUITS','VEGGIES'); 
