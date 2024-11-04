@@ -1,3 +1,11 @@
+--example 1
+create or replace table GARDEN_PLANTS.VEGGIES.LU_SOIL_TYPE(
+SOIL_TYPE_ID number,	
+SOIL_TYPE varchar(15),
+SOIL_DESCRIPTION varchar(75)
+ );
+
+--example 2
 create or replace table ROOT_DEPTH (
    ROOT_DEPTH_ID number(1), 
    ROOT_DEPTH_CODE text(1), 
