@@ -20,3 +20,10 @@ create or replace table GARDEN_PLANTS.VEGGIES.VEGETABLE_DETAILS (
 	PLANT_NAME VARCHAR(25),
 	ROOT_DEPTH_CODE VARCHAR(1)
 );
+
+create or replace table GARDEN_PLANTS.VEGGIES.VEG_PLANT_HEIGHT
+PLANT_NAME varhar (25),	
+UOM  varchar(1),
+LOW_END_OF_RANGE number(2),
+HIGH_END_OF_RANGE number(2)
+ );
