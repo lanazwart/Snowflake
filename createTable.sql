@@ -14,3 +14,9 @@ create or replace table ROOT_DEPTH (
    RANGE_MIN number(2),
    RANGE_MAX number(2)
    ); 
+
+--example 3
+create or replace table GARDEN_PLANTS.VEGGIES.VEGETABLE_DETAILS (
+	PLANT_NAME VARCHAR(25),
+	ROOT_DEPTH_CODE VARCHAR(1)
+);
