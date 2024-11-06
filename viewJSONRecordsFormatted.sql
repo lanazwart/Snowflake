@@ -1,8 +1,8 @@
-//returns AUTHOR_UID value from top-level object's attribute
+--returns AUTHOR_UID value from top-level object's attribute
 select raw_author:AUTHOR_UID
 from author_ingest_json;
 
-//returns the data in a way that makes it look like a normalized table
+--returns the data in a way that makes it look like a normalized table
 SELECT 
  raw_author:AUTHOR_UID
 ,raw_author:FIRST_NAME::STRING as FIRST_NAME
