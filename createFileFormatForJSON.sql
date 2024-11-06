@@ -5,6 +5,6 @@ type = 'JSON'
 compression = 'AUTO' 
 enable_octal = FALSE
 allow_duplicate = TRUE
-strip_outer_array = FALSE
+strip_outer_array = TRUE
 strip_null_values = FALSE
 ignore_utf8_errors = FALSE; 
