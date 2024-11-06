@@ -7,7 +7,7 @@ select value:first_name
 from nested_ingest_json
 ,table(flatten(raw_nested_book:authors));
 
---Add a CAST command to the fields returned
+--Add a CAST command to the fields returned - this gets rid of the quotes surrounding the field names in the results 
 SELECT value:first_name::varchar, value:last_name::varchar
 from nested_ingest_json
 ,lateral flatten(input => raw_nested_book:authors);
