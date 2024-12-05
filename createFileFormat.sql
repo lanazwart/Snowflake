@@ -21,3 +21,15 @@ create file format garden_plants.veggies.COMMASEP_DBLQUOT_ONEHEADROW
     SKIP_HEADER = 1 --one header row  
     FIELD_OPTIONALLY_ENCLOSED_BY = '"' --this means that some values will be wrapped in double-quotes bc they have commas in them
     ;
+
+--example 4 - when the file and the table that we're loading into have a different number of columns
+-- This file format will allow the 3 column file to be loaded into an 18 column table
+-- By parsing the header, Snowflake can infer the column names
+CREATE FILE FORMAT util_db.public.CSV_COL_COUNT_DIFF 
+type = 'CSV' 
+field_delimiter = ',' 
+record_delimiter = '\n' 
+field_optionally_enclosed_by = '"'
+trim_space = TRUE
+error_on_column_count_mismatch = FALSE
+parse_header = TRUE;
