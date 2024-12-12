@@ -1,3 +1,7 @@
+create function sum_mystery_bag_vars (var1 number, var2 number, var3 number)
+returns number as '$var1+$var2+$var3' ;
+
+-- this was for the integration with the accreditation tool (the one that generates badges) 
 use role accountadmin;  
 
 create or replace external function util_db.public.grader(
