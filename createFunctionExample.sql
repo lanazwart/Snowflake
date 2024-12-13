@@ -1,5 +1,20 @@
-create function sum_mystery_bag_vars (var1 number, var2 number, var3 number)
-returns number as '$var1+$var2+$var3' ;
+--Two ways of creating a function
+
+--1
+create OR replace function sum_mystery_bag_vars(var1 NUMBER, var2 NUMBER, var3 NUMBER)
+returns NUMBER AS 'SELECT var1 + var2 + var3';
+--use this function
+select sum_mystery_bag_vars(12,36,204);
+
+-- OR 
+
+--2
+set var1 = 12;
+set var2 = 67.2;
+set var3 -39;
+--use this function
+select sum_mystery_bag_vars($var1, $var2, $var3)
+
 
 -- this was for the integration with the accreditation tool (the one that generates badges) 
 use role accountadmin;  
