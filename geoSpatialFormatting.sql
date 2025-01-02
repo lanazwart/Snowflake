@@ -43,6 +43,7 @@ select st_makepoint($loc_lng,$loc_lat) as confluent_park_point;
 
 --use the variables to calculate the distance from 
 --Melanie's Cafe to Confluent Park
+--to use the st_distance function, you need to send in proper longitude and latitude data points
 select st_distance(
         st_makepoint($mc_lng,$mc_lat)
         ,st_makepoint($loc_lng,$loc_lat)
