@@ -28,7 +28,7 @@ select feature_name
 , trail_length
 from DENVER_AREA_TRAILS_2;
 
---Calculate distaance
+--Calculate distance
 -- Melanie's Location into a 2 Variables (mc for melanies cafe)
 set mc_lng='-104.97300245114094';
 set mc_lat='39.76471253574085';
