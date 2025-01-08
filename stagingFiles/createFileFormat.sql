@@ -33,3 +33,8 @@ field_optionally_enclosed_by = '"'
 trim_space = TRUE
 error_on_column_count_mismatch = FALSE
 parse_header = TRUE;
+
+--example 5
+CREATE FILE FORMAT FF_JSON_LOGS
+type = JSON
+strip_outer_array = true
