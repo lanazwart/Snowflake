@@ -37,4 +37,4 @@ parse_header = TRUE;
 --example 5
 CREATE FILE FORMAT FF_JSON_LOGS
 type = JSON
-strip_outer_array = true
+strip_outer_array = true --removes the [] square brackets when loading data
