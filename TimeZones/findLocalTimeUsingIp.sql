@@ -45,3 +45,36 @@ ON IPINFO_IP_GEOLOCATION_TRAININGEDUCATION_SAMPLE.public.TO_JOIN_KEY(logs.ip_add
 AND IPINFO_IP_GEOLOCATION_TRAININGEDUCATION_SAMPLE.public.TO_INT(logs.ip_address) 
 BETWEEN start_ip_int AND end_ip_int;
 
+--Add a column called GAME_EVENT_LTZ to the last code block you ran
+SELECT logs.ip_address
+, logs.user_login
+, logs.user_event
+, logs.datetime_iso8601
+, city
+, region
+, country
+, timezone --this will be the local time zone like 'Africa/Johannesburg'
+, CONVERT_TIMEZONE( 'UTC', timezone, logs.datetime_iso8601) as game_event_ltz -- ADD THIS 
+from AGS_GAME_AUDIENCE.RAW.LOGS logs
+JOIN IPINFO_IP_GEOLOCATION_TRAININGEDUCATION_SAMPLE.demo.location loc 
+ON IPINFO_IP_GEOLOCATION_TRAININGEDUCATION_SAMPLE.public.TO_JOIN_KEY(logs.ip_address) = loc.join_key
+AND IPINFO_IP_GEOLOCATION_TRAININGEDUCATION_SAMPLE.public.TO_INT(logs.ip_address) 
+BETWEEN start_ip_int AND end_ip_int;
+
+
+--Use the DAYNAME function to add the DOW ("Day of Week") name as a column to your SELECT.  The new column should be named DOW_NAME. 
+--Be sure to use the local time zone datetime value so that you get the day in local time
+SELECT logs.ip_address
+, logs.user_login
+, logs.user_event
+, logs.datetime_iso8601
+, city
+, region
+, country
+, timezone 
+, CONVERT_TIMEZONE( 'UTC', timezone, logs.datetime_iso8601) as game_event_ltz
+from AGS_GAME_AUDIENCE.RAW.LOGS logs
+JOIN IPINFO_IP_GEOLOCATION_TRAININGEDUCATION_SAMPLE.demo.location loc 
+ON IPINFO_IP_GEOLOCATION_TRAININGEDUCATION_SAMPLE.public.TO_JOIN_KEY(logs.ip_address) = loc.join_key
+AND IPINFO_IP_GEOLOCATION_TRAININGEDUCATION_SAMPLE.public.TO_INT(logs.ip_address) 
+BETWEEN start_ip_int AND end_ip_int;
