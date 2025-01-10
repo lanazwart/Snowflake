@@ -9,7 +9,7 @@ SELECT logs.ip_address
 , region
 , country
 , timezone 
-, CONVERT_TIMEZONE( 'UTC', timezone, logs.datetime_iso8601) as game_event_ltz
+, CONVERT_TIMEZONE( 'UTC', timezone, logs.datetime_iso8601) as game_event_ltz  -- taking the datetime fields and converting them into UTC (determined they're stored in UTC through manual tests)
 from AGS_GAME_AUDIENCE.RAW.LOGS logs
 JOIN IPINFO_IP_GEOLOCATION.demo.location loc 
 ON IPINFO_IP_GEOLOCATION.public.TO_JOIN_KEY(logs.ip_address) = loc.join_key
