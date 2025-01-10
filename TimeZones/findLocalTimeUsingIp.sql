@@ -78,3 +78,26 @@ JOIN IPINFO_IP_GEOLOCATION_TRAININGEDUCATION_SAMPLE.demo.location loc
 ON IPINFO_IP_GEOLOCATION_TRAININGEDUCATION_SAMPLE.public.TO_JOIN_KEY(logs.ip_address) = loc.join_key
 AND IPINFO_IP_GEOLOCATION_TRAININGEDUCATION_SAMPLE.public.TO_INT(logs.ip_address) 
 BETWEEN start_ip_int AND end_ip_int;
+
+--Add the day of the week  
+--Add the time of the day using a lookup table
+--wrap it into a table
+CREATE TABLE AGS_GAME_AUDIENCE.ENHANCED.LOGS_ENHANCED AS
+SELECT logs.ip_address
+, logs.user_login AS GAMER_NAME
+, logs.user_event AS GAME_EVENT_NAME
+, logs.datetime_iso8601 GAME_EVENT_UTC
+, city
+, region
+, country
+, timezone AS GAMER_LTZ_NAME
+, CONVERT_TIMEZONE( 'UTC', timezone, logs.datetime_iso8601) as game_event_ltz
+, DAYNAME(game_event_ltz) AS DOW_NAME
+, TOD_NAME
+from AGS_GAME_AUDIENCE.RAW.LOGS logs
+JOIN IPINFO_IP_GEOLOCATION_TRAININGEDUCATION_SAMPLE.demo.location loc 
+ON IPINFO_IP_GEOLOCATION_TRAININGEDUCATION_SAMPLE.public.TO_JOIN_KEY(logs.ip_address) = loc.join_key
+AND IPINFO_IP_GEOLOCATION_TRAININGEDUCATION_SAMPLE.public.TO_INT(logs.ip_address) 
+BETWEEN start_ip_int AND end_ip_int
+JOIN AGS_GAME_AUDIENCE.RAW.TIME_OF_DAY_LU tod_lookup
+ON EXTRACT(hour from game_event_ltz) =  tod_lookup.hour;
